@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   ArrowRight,
-  Calculator,
   Landmark,
   PieChart,
   RefreshCw,
@@ -9,6 +9,103 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { useState } from "react";
+
+function SIPCalculator() {
+  const [monthly, setMonthly] = useState(5000);
+  const [rate, setRate] = useState(12);
+  const [years, setYears] = useState(10);
+
+  const r = rate / 12 / 100;
+  const n = years * 12;
+  const totalValue =
+    r > 0 ? monthly * ((((1 + r) ** n - 1) / r) * (1 + r)) : monthly * n;
+  const invested = monthly * n;
+  const returns = totalValue - invested;
+
+  const fmt = (v: number) =>
+    new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 }).format(v);
+
+  return (
+    <div className="mt-4 mb-5 bg-emerald-50/60 border border-emerald-100 rounded-xl p-4">
+      <p className="text-xs font-bold uppercase tracking-widest text-emerald-700 mb-3">
+        SIP Calculator
+      </p>
+      <div className="grid grid-cols-3 gap-2 mb-4">
+        <div>
+          <label
+            htmlFor="sip-monthly"
+            className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wide block mb-1"
+          >
+            Monthly (₹)
+          </label>
+          <Input
+            id="sip-monthly"
+            type="number"
+            value={monthly}
+            min={500}
+            step={500}
+            data-ocid="sip.input"
+            onChange={(e) => setMonthly(Number(e.target.value))}
+            className="h-8 text-xs px-2 border-emerald-200 focus-visible:ring-emerald-400"
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="sip-rate"
+            className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wide block mb-1"
+          >
+            Return (%)
+          </label>
+          <Input
+            id="sip-rate"
+            type="number"
+            value={rate}
+            min={1}
+            max={30}
+            step={0.5}
+            onChange={(e) => setRate(Number(e.target.value))}
+            className="h-8 text-xs px-2 border-emerald-200 focus-visible:ring-emerald-400"
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="sip-years"
+            className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wide block mb-1"
+          >
+            Years
+          </label>
+          <Input
+            id="sip-years"
+            type="number"
+            value={years}
+            min={1}
+            max={40}
+            step={1}
+            onChange={(e) => setYears(Number(e.target.value))}
+            className="h-8 text-xs px-2 border-emerald-200 focus-visible:ring-emerald-400"
+          />
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-2">
+        <div className="text-center bg-white rounded-lg py-2 px-1 border border-emerald-100">
+          <p className="text-[10px] text-muted-foreground mb-0.5">Invested</p>
+          <p className="text-sm font-bold text-foreground">₹{fmt(invested)}</p>
+        </div>
+        <div className="text-center bg-white rounded-lg py-2 px-1 border border-emerald-100">
+          <p className="text-[10px] text-muted-foreground mb-0.5">
+            Est. Returns
+          </p>
+          <p className="text-sm font-bold text-emerald-600">₹{fmt(returns)}</p>
+        </div>
+        <div className="text-center bg-emerald-600 rounded-lg py-2 px-1">
+          <p className="text-[10px] text-emerald-100 mb-0.5">Total Value</p>
+          <p className="text-sm font-bold text-white">₹{fmt(totalValue)}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const services = [
   {
@@ -26,6 +123,7 @@ const services = [
       "Start a Systematic Investment Plan from just ₹500/month. Build long-term wealth through rupee cost averaging in top-performing mutual fund schemes.",
     color: "text-emerald-600",
     bg: "bg-emerald-50",
+    hasSIPCalculator: true,
   },
   {
     icon: Shield,
@@ -50,14 +148,6 @@ const services = [
       "Secure guaranteed returns with bank and corporate FDs offering up to 8.5% p.a. interest. Safe, liquid, and ideal for capital preservation.",
     color: "text-rose-600",
     bg: "bg-rose-50",
-  },
-  {
-    icon: Calculator,
-    title: "Tax Planning",
-    description:
-      "Maximize your savings under Section 80C, 80D, and other provisions. Our chartered accountants ensure you're fully compliant while minimizing tax outgo.",
-    color: "text-indigo-600",
-    bg: "bg-indigo-50",
   },
 ];
 
@@ -113,37 +203,47 @@ export function ServicesSection() {
         >
           {services.map((service, idx) => {
             const Icon = service.icon;
+            const isSIP =
+              "hasSIPCalculator" in service && service.hasSIPCalculator;
             return (
               <motion.div
                 key={service.title}
                 variants={cardVariants}
                 data-ocid={`services.item.${idx + 1}`}
-                className="group bg-card rounded-2xl p-6 shadow-card border border-border hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                className={`group bg-card rounded-2xl p-6 shadow-card border border-border hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 flex flex-col${
+                  isSIP ? " sm:col-span-2 lg:col-span-3" : ""
+                }`}
               >
-                {/* Icon */}
-                <div
-                  className={`w-12 h-12 rounded-xl ${service.bg} flex items-center justify-center mb-4`}
-                >
-                  <Icon
-                    className={`w-6 h-6 ${service.color}`}
-                    strokeWidth={1.8}
-                  />
+                <div>
+                  <div
+                    className={`w-12 h-12 rounded-xl ${service.bg} flex items-center justify-center mb-4`}
+                  >
+                    <Icon
+                      className={`w-6 h-6 ${service.color}`}
+                      strokeWidth={1.8}
+                    />
+                  </div>
+                  <h3 className="font-display text-xl font-bold text-foreground mb-2">
+                    {service.title}
+                  </h3>
+                  <p
+                    className={`text-muted-foreground text-sm leading-relaxed mb-0${
+                      isSIP ? " max-w-xl" : " flex-1"
+                    }`}
+                  >
+                    {service.description}
+                  </p>
                 </div>
 
-                {/* Content */}
-                <h3 className="font-display text-xl font-bold text-foreground mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed flex-1 mb-5">
-                  {service.description}
-                </p>
+                {/* SIP Calculator */}
+                {isSIP && <SIPCalculator />}
 
                 {/* CTA */}
                 <Button
                   variant="ghost"
                   size="sm"
                   data-ocid={`services.primary_button.${idx + 1}`}
-                  className="self-start gap-2 text-primary hover:text-gold hover:bg-gold/10 px-0 font-semibold group-hover:gap-3 transition-all"
+                  className="self-start gap-2 text-primary hover:text-gold hover:bg-gold/10 px-0 font-semibold group-hover:gap-3 transition-all mt-auto"
                   onClick={scrollToContact}
                 >
                   Get Started

@@ -56,11 +56,46 @@ export function Footer() {
               smart, transparent, and personalized investment solutions since
               2009.
             </p>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 mb-6">
               <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span className="text-white/50 text-xs">
                 SEBI Registered Investment Advisor
               </span>
+            </div>
+
+            {/* App Store Badges */}
+            <div className="flex flex-col gap-2">
+              <p className="text-white/50 text-xs uppercase tracking-wider mb-1">
+                Download Our App
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://play.google.com/store"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-ocid="footer.link"
+                  className="transition-opacity hover:opacity-80"
+                >
+                  <img
+                    src="/assets/generated/google-play-badge.dim_200x60.png"
+                    alt="Get it on Google Play"
+                    className="h-10 w-auto rounded-lg"
+                  />
+                </a>
+                <a
+                  href="https://apps.apple.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-ocid="footer.link"
+                  className="transition-opacity hover:opacity-80"
+                >
+                  <img
+                    src="/assets/generated/app-store-badge.dim_200x60.png"
+                    alt="Download on the App Store"
+                    className="h-10 w-auto rounded-lg"
+                  />
+                </a>
+              </div>
             </div>
           </div>
 
