@@ -1,4 +1,4 @@
-import { Heart, TrendingUp } from "lucide-react";
+import { Heart } from "lucide-react";
 
 const footerLinks = {
   Company: [
@@ -34,22 +34,13 @@ export function Footer() {
               type="button"
               data-ocid="footer.link"
               onClick={() => handleClick("#home")}
-              className="flex items-center gap-2.5 mb-4 group w-fit"
+              className="flex items-center mb-4 group w-fit"
             >
-              <div className="w-9 h-9 rounded-lg bg-gold flex items-center justify-center">
-                <TrendingUp
-                  className="w-5 h-5 text-navy-deep"
-                  strokeWidth={2.5}
-                />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-display text-lg font-bold tracking-tight">
-                  Balaji
-                </span>
-                <span className="text-xs font-semibold text-gold tracking-widest uppercase">
-                  Investments
-                </span>
-              </div>
+              <img
+                src="/assets/uploads/newlogobalaji-2-1.png"
+                alt="Balaji Finmart LLP"
+                className="h-16 w-auto object-contain"
+              />
             </button>
             <p className="text-white/60 text-sm leading-relaxed max-w-xs mb-6">
               Empowering every Indian to achieve financial independence through
@@ -70,7 +61,7 @@ export function Footer() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="https://play.google.com/store"
+                  href="https://play.google.com/store/apps/details?id=com.balajifinmartmf.mobile.app"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-ocid="footer.link"
@@ -83,7 +74,7 @@ export function Footer() {
                   />
                 </a>
                 <a
-                  href="https://apps.apple.com"
+                  href="https://apps.apple.com/us/app/balaji-finmart/id6738837524"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-ocid="footer.link"

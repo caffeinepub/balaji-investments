@@ -12,6 +12,8 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+const BACK_OFFICE_URL = "https://www.manumangal.com/Back-office";
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -70,8 +72,16 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* CTAs */}
+          <div className="hidden md:flex items-center gap-2">
+            <Button
+              data-ocid="nav.secondary_button"
+              variant="outline"
+              className="border-gold/50 text-gold bg-transparent hover:bg-gold hover:text-navy-deep font-semibold transition-all"
+              onClick={() => window.open(BACK_OFFICE_URL, "_blank")}
+            >
+              Login
+            </Button>
             <Button
               data-ocid="nav.primary_button"
               className="bg-gold text-navy-deep font-semibold hover:bg-gold-light shadow-gold transition-all hover:shadow-lg hover:scale-105"
@@ -123,13 +133,26 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <Button
-                data-ocid="nav.primary_button"
-                className="mt-2 bg-gold text-navy-deep font-semibold hover:bg-gold-light"
-                onClick={() => handleNavClick("#contact")}
-              >
-                Get Started
-              </Button>
+              <div className="flex gap-2 mt-2">
+                <Button
+                  data-ocid="nav.secondary_button"
+                  variant="outline"
+                  className="flex-1 border-gold/50 text-gold bg-transparent hover:bg-gold hover:text-navy-deep font-semibold"
+                  onClick={() => {
+                    setMobileOpen(false);
+                    window.open(BACK_OFFICE_URL, "_blank");
+                  }}
+                >
+                  Login
+                </Button>
+                <Button
+                  data-ocid="nav.primary_button"
+                  className="flex-1 bg-gold text-navy-deep font-semibold hover:bg-gold-light"
+                  onClick={() => handleNavClick("#contact")}
+                >
+                  Get Started
+                </Button>
+              </div>
             </div>
           </motion.div>
         )}
