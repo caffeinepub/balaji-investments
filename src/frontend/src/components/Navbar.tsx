@@ -21,10 +21,10 @@ const orangeBtn = {
   border: "none",
 } as React.CSSProperties;
 
-const orangeOutlineBtn = {
-  background: "transparent",
-  color: "oklch(0.75 0.18 50)",
-  border: "1.5px solid oklch(0.65 0.2 48)",
+const whiteLoginBtn = {
+  background: "#ffffff",
+  color: "#1a1a1a",
+  border: "none",
 } as React.CSSProperties;
 
 export function Navbar() {
@@ -89,9 +89,8 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-2">
             <Button
               data-ocid="nav.secondary_button"
-              variant="outline"
-              style={orangeOutlineBtn}
-              className="font-semibold transition-all hover:opacity-90"
+              style={whiteLoginBtn}
+              className="font-semibold transition-all hover:opacity-80 hover:scale-105 shadow-md"
               onClick={() => window.open(LOGIN_URL, "_blank")}
             >
               Login
@@ -151,9 +150,8 @@ export function Navbar() {
               <div className="flex gap-2 mt-2">
                 <Button
                   data-ocid="nav.secondary_button"
-                  variant="outline"
-                  style={orangeOutlineBtn}
-                  className="flex-1 font-semibold"
+                  style={whiteLoginBtn}
+                  className="flex-1 font-semibold hover:opacity-80"
                   onClick={() => {
                     setMobileOpen(false);
                     window.open(LOGIN_URL, "_blank");
