@@ -156,14 +156,14 @@
     color: oklch(var(--navy-deep));
   }
 
-  /* Hero section deep blue gradient background */
+  /* Hero section orange gradient background */
   .hero-mesh {
     background: linear-gradient(
       135deg,
-      oklch(0.18 0.09 265) 0%,
-      oklch(0.22 0.1 255) 40%,
-      oklch(0.26 0.08 270) 70%,
-      oklch(0.2 0.1 260) 100%
+      oklch(0.42 0.18 40) 0%,
+      oklch(0.72 0.22 48) 40%,
+      oklch(0.78 0.24 42) 70%,
+      oklch(0.75 0.23 40) 100%
     );
   }
 

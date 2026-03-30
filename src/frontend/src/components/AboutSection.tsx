@@ -53,8 +53,8 @@ export function AboutSection() {
                 <strong className="text-foreground">Balaji Investments</strong>{" "}
                 was built on a single belief: that every Indian deserves access
                 to world-class financial advice — not just the privileged few.
-                We started as a small advisory firm in Chennai and have since
-                grown into one of South India's most trusted investment houses.
+                We started as a small advisory firm in Amravati and have grown
+                into one of Maharashtra's most trusted investment houses.
               </p>
               <p>
                 Our team of SEBI-registered investment advisors, certified
@@ -65,10 +65,10 @@ export function AboutSection() {
                 journey.
               </p>
               <p>
-                We believe in transparent fee structures, conflict-free advice,
-                and long-term partnerships. Our clients aren't just account
-                numbers — they are families, entrepreneurs, and dreamers who
-                trust us with their most important goals.
+                We believe in honest advice and long-term partnerships. Our
+                clients aren't just account numbers — they are families,
+                entrepreneurs, and dreamers who trust us with their most
+                important goals.
               </p>
             </div>
 
@@ -121,13 +121,17 @@ export function AboutSection() {
               })}
             </div>
 
-            {/* Navy card */}
+            {/* Orange accent card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-4 bg-navy-deep rounded-2xl p-6 text-white relative overflow-hidden"
+              className="mt-4 rounded-2xl p-6 text-white relative overflow-hidden"
+              style={{
+                background:
+                  "linear-gradient(135deg, oklch(0.42 0.18 40) 0%, oklch(0.52 0.2 48) 100%)",
+              }}
             >
               <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-gold/10 -translate-y-8 translate-x-8" />
               <div className="relative z-10">

@@ -28,7 +28,6 @@ const serviceOptions = [
   { value: "insurance", label: "Insurance" },
   { value: "mutual-funds", label: "Mutual Funds" },
   { value: "fixed-deposits", label: "Fixed Deposits" },
-  { value: "tax-planning", label: "Tax Planning" },
 ];
 
 const contactInfo = [
@@ -144,14 +143,20 @@ export function ContactSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2 space-y-4"
           >
-            <div className="bg-navy-deep rounded-2xl p-7 text-white relative overflow-hidden">
+            <div
+              className="rounded-2xl p-7 text-white relative overflow-hidden"
+              style={{
+                background:
+                  "linear-gradient(135deg, oklch(0.42 0.18 40) 0%, oklch(0.52 0.2 48) 40%, oklch(0.46 0.19 35) 70%, oklch(0.38 0.17 42) 100%)",
+              }}
+            >
               <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-gold/8 -translate-y-10 translate-x-10" />
               <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full bg-white/5 translate-y-10 -translate-x-10" />
               <div className="relative z-10">
                 <h3 className="font-display text-2xl font-bold mb-2">
                   Contact Information
                 </h3>
-                <p className="text-white/60 text-sm mb-7">
+                <p className="text-white/70 text-sm mb-7">
                   Reach out to us — we're always happy to help.
                 </p>
                 <div className="space-y-5">
@@ -159,11 +164,11 @@ export function ContactSection() {
                     const Icon = info.icon;
                     return (
                       <div key={info.label} className="flex gap-4">
-                        <div className="w-9 h-9 rounded-lg bg-gold/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-9 h-9 rounded-lg bg-gold/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                           <Icon className="w-4 h-4 text-gold" />
                         </div>
                         <div>
-                          <p className="text-white/40 text-xs font-medium mb-0.5">
+                          <p className="text-white/50 text-xs font-medium mb-0.5">
                             {info.label}
                           </p>
                           <p className="text-white text-sm">{info.value}</p>
@@ -332,7 +337,11 @@ export function ContactSection() {
                       !form.phone ||
                       !form.serviceInterest
                     }
-                    className="w-full h-12 bg-primary text-primary-foreground hover:bg-navy-light font-semibold gap-2 text-base"
+                    className="w-full h-12 text-white font-semibold gap-2 text-base border-0"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, oklch(0.42 0.18 40) 0%, oklch(0.52 0.2 48) 100%)",
+                    }}
                   >
                     {isPending ? (
                       <>

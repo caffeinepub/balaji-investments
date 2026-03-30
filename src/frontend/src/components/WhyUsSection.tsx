@@ -1,4 +1,4 @@
-import { Eye, GraduationCap, HeadphonesIcon, UserCheck } from "lucide-react";
+import { GraduationCap, HeadphonesIcon, UserCheck } from "lucide-react";
 import { motion } from "motion/react";
 
 const benefits = [
@@ -7,12 +7,6 @@ const benefits = [
     title: "Expert Guidance",
     description:
       "A team of SEBI-registered advisors, CFPs, and CAs with decades of combined market experience crafting strategies for every life stage.",
-  },
-  {
-    icon: Eye,
-    title: "Transparent Fees",
-    description:
-      "No hidden charges, no opaque commissions. Our flat-fee and fee-only advisory models ensure your advisor's interests align perfectly with yours.",
   },
   {
     icon: UserCheck,
@@ -32,7 +26,11 @@ export function WhyUsSection() {
   return (
     <section
       id="why-us"
-      className="py-20 lg:py-28 bg-navy-deep relative overflow-hidden"
+      className="py-20 lg:py-28 relative overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(135deg, oklch(0.42 0.18 40) 0%, oklch(0.52 0.2 48) 40%, oklch(0.46 0.19 35) 70%, oklch(0.38 0.17 42) 100%)",
+      }}
     >
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
@@ -58,13 +56,13 @@ export function WhyUsSection() {
             The Balaji Difference
           </h2>
           <p className="text-white/60 text-lg max-w-2xl mx-auto">
-            Four pillars that make Balaji Investments the preferred choice for
+            Three pillars that make Balaji Investments the preferred choice for
             smart investors across India.
           </p>
         </motion.div>
 
         {/* Benefits grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-3 gap-6">
           {benefits.map((benefit, idx) => {
             const Icon = benefit.icon;
             return (

@@ -12,7 +12,7 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-const BACK_OFFICE_URL = "https://www.manumangal.com/Back-office";
+const LOGIN_URL = "https://balajiinvestments.investwell.app/app/#/login";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -78,7 +78,7 @@ export function Navbar() {
               data-ocid="nav.secondary_button"
               variant="outline"
               className="border-gold/50 text-gold bg-transparent hover:bg-gold hover:text-navy-deep font-semibold transition-all"
-              onClick={() => window.open(BACK_OFFICE_URL, "_blank")}
+              onClick={() => window.open(LOGIN_URL, "_blank")}
             >
               Login
             </Button>
@@ -140,7 +140,7 @@ export function Navbar() {
                   className="flex-1 border-gold/50 text-gold bg-transparent hover:bg-gold hover:text-navy-deep font-semibold"
                   onClick={() => {
                     setMobileOpen(false);
-                    window.open(BACK_OFFICE_URL, "_blank");
+                    window.open(LOGIN_URL, "_blank");
                   }}
                 >
                   Login

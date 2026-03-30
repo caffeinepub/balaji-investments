@@ -13,7 +13,6 @@ const footerLinks = {
     { label: "Insurance", href: "#services" },
     { label: "Mutual Funds", href: "#services" },
     { label: "Fixed Deposits", href: "#services" },
-    { label: "Tax Planning", href: "#services" },
   ],
 };
 
@@ -44,8 +43,7 @@ export function Footer() {
             </button>
             <p className="text-white/60 text-sm leading-relaxed max-w-xs mb-6">
               Empowering every Indian to achieve financial independence through
-              smart, transparent, and personalized investment solutions since
-              2009.
+              smart, honest, and personalized investment solutions since 2009.
             </p>
             <div className="flex items-center gap-2 mb-6">
               <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />

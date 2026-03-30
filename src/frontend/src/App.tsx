@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
 import { AboutSection } from "./components/AboutSection";
+import { AchievementsSection } from "./components/AchievementsSection";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
 import { HeroSection } from "./components/HeroSection";
@@ -18,6 +19,7 @@ export default function App() {
         <AboutSection />
         <WhyUsSection />
         <TestimonialsSection />
+        <AchievementsSection />
         <ContactSection />
       </main>
       <Footer />
