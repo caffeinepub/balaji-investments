@@ -8,6 +8,13 @@ const trustBadges = [
   "15 Years of Excellence",
 ];
 
+const orangeBtn = {
+  background:
+    "linear-gradient(135deg, oklch(0.55 0.22 45) 0%, oklch(0.62 0.23 50) 100%)",
+  color: "#fff",
+  border: "none",
+} as React.CSSProperties;
+
 export function HeroSection() {
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
@@ -78,7 +85,8 @@ export function HeroSection() {
               <Button
                 size="lg"
                 data-ocid="hero.primary_button"
-                className="bg-gold text-navy-deep font-bold hover:bg-gold-light shadow-gold hover:shadow-lg hover:scale-105 transition-all gap-2 px-8"
+                style={orangeBtn}
+                className="font-bold hover:opacity-90 shadow-md hover:shadow-lg hover:scale-105 transition-all gap-2 px-8"
                 onClick={() => scrollTo("#services")}
               >
                 Explore Services
@@ -86,9 +94,9 @@ export function HeroSection() {
               </Button>
               <Button
                 size="lg"
-                variant="outline"
                 data-ocid="hero.secondary_button"
-                className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 gap-2 px-8"
+                style={orangeBtn}
+                className="font-bold hover:opacity-90 shadow-md hover:scale-105 transition-all gap-2 px-8"
                 onClick={() => scrollTo("#contact")}
               >
                 <PhoneCall className="w-4 h-4" />

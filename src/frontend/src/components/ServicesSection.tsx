@@ -165,6 +165,11 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
+const orangeGhostStyle = {
+  color: "oklch(0.55 0.22 45)",
+  fontWeight: 600,
+} as React.CSSProperties;
+
 export function ServicesSection() {
   const scrollToContact = () => {
     document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
@@ -243,7 +248,8 @@ export function ServicesSection() {
                   variant="ghost"
                   size="sm"
                   data-ocid={`services.primary_button.${idx + 1}`}
-                  className="self-start gap-2 text-primary hover:text-gold hover:bg-gold/10 px-0 font-semibold group-hover:gap-3 transition-all mt-auto"
+                  style={orangeGhostStyle}
+                  className="self-start gap-2 px-0 group-hover:gap-3 transition-all mt-auto hover:bg-orange-50"
                   onClick={scrollToContact}
                 >
                   Get Started

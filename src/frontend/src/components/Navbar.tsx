@@ -14,6 +14,19 @@ const navLinks = [
 
 const LOGIN_URL = "https://balajiinvestments.investwell.app/app/#/login";
 
+const orangeBtn = {
+  background:
+    "linear-gradient(135deg, oklch(0.55 0.22 45) 0%, oklch(0.62 0.23 50) 100%)",
+  color: "#fff",
+  border: "none",
+} as React.CSSProperties;
+
+const orangeOutlineBtn = {
+  background: "transparent",
+  color: "oklch(0.75 0.18 50)",
+  border: "1.5px solid oklch(0.65 0.2 48)",
+} as React.CSSProperties;
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -77,14 +90,16 @@ export function Navbar() {
             <Button
               data-ocid="nav.secondary_button"
               variant="outline"
-              className="border-gold/50 text-gold bg-transparent hover:bg-gold hover:text-navy-deep font-semibold transition-all"
+              style={orangeOutlineBtn}
+              className="font-semibold transition-all hover:opacity-90"
               onClick={() => window.open(LOGIN_URL, "_blank")}
             >
               Login
             </Button>
             <Button
               data-ocid="nav.primary_button"
-              className="bg-gold text-navy-deep font-semibold hover:bg-gold-light shadow-gold transition-all hover:shadow-lg hover:scale-105"
+              style={orangeBtn}
+              className="font-semibold transition-all hover:opacity-90 hover:scale-105 shadow-md"
               onClick={() => handleNavClick("#contact")}
             >
               Get Started
@@ -137,7 +152,8 @@ export function Navbar() {
                 <Button
                   data-ocid="nav.secondary_button"
                   variant="outline"
-                  className="flex-1 border-gold/50 text-gold bg-transparent hover:bg-gold hover:text-navy-deep font-semibold"
+                  style={orangeOutlineBtn}
+                  className="flex-1 font-semibold"
                   onClick={() => {
                     setMobileOpen(false);
                     window.open(LOGIN_URL, "_blank");
@@ -147,7 +163,8 @@ export function Navbar() {
                 </Button>
                 <Button
                   data-ocid="nav.primary_button"
-                  className="flex-1 bg-gold text-navy-deep font-semibold hover:bg-gold-light"
+                  style={orangeBtn}
+                  className="flex-1 font-semibold"
                   onClick={() => handleNavClick("#contact")}
                 >
                   Get Started

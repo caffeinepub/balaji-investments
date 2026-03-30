@@ -53,6 +53,19 @@ const contactInfo = [
   },
 ];
 
+const orangeBtn = {
+  background:
+    "linear-gradient(135deg, oklch(0.55 0.22 45) 0%, oklch(0.62 0.23 50) 100%)",
+  color: "#fff",
+  border: "none",
+} as React.CSSProperties;
+
+const orangeOutlineBtn = {
+  background: "transparent",
+  color: "oklch(0.55 0.22 45)",
+  border: "1.5px solid oklch(0.55 0.22 45)",
+} as React.CSSProperties;
+
 export function ContactSection() {
   const [form, setForm] = useState({
     name: "",
@@ -212,6 +225,8 @@ export function ContactSection() {
                   <Button
                     variant="outline"
                     data-ocid="contact.secondary_button"
+                    style={orangeOutlineBtn}
+                    className="font-semibold hover:opacity-80"
                     onClick={handleNewInquiry}
                   >
                     Submit Another Inquiry
@@ -337,11 +352,8 @@ export function ContactSection() {
                       !form.phone ||
                       !form.serviceInterest
                     }
-                    className="w-full h-12 text-white font-semibold gap-2 text-base border-0"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, oklch(0.42 0.18 40) 0%, oklch(0.52 0.2 48) 100%)",
-                    }}
+                    style={orangeBtn}
+                    className="w-full h-12 font-semibold gap-2 text-base hover:opacity-90 transition-opacity"
                   >
                     {isPending ? (
                       <>
