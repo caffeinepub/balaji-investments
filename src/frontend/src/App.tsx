@@ -6,6 +6,7 @@ import { Footer } from "./components/Footer";
 import { HeroSection } from "./components/HeroSection";
 import { Navbar } from "./components/Navbar";
 import { ServicesSection } from "./components/ServicesSection";
+import { TeamSection } from "./components/TeamSection";
 import { TestimonialsSection } from "./components/TestimonialsSection";
 import { WhyUsSection } from "./components/WhyUsSection";
 
@@ -17,6 +18,7 @@ export default function App() {
         <HeroSection />
         <ServicesSection />
         <AboutSection />
+        <TeamSection />
         <WhyUsSection />
         <TestimonialsSection />
         <AchievementsSection />
