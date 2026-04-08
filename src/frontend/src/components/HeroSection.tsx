@@ -33,8 +33,8 @@ export function HeroSection() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
+        <div className="flex justify-center">
+          <div className="max-w-2xl w-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -121,42 +121,6 @@ export function HeroSection() {
               ))}
             </motion.div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, x: 20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="hidden lg:flex items-center justify-center"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 rounded-2xl bg-gold/10 blur-3xl scale-110" />
-              <img
-                src="/assets/generated/hero-investment.dim_800x600.png"
-                alt="Investment Growth"
-                className="relative w-full max-w-lg rounded-2xl shadow-2xl animate-float"
-              />
-              <div className="absolute -left-8 top-1/4 bg-white rounded-xl shadow-xl p-3 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-gold/15 flex items-center justify-center">
-                  <span className="text-gold font-bold text-sm">₹</span>
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground">AUM Managed</p>
-                  <p className="font-bold text-foreground text-sm">₹500Cr+</p>
-                </div>
-              </div>
-              <div className="absolute -right-6 bottom-1/4 bg-white rounded-xl shadow-xl p-3 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <span className="text-primary font-bold text-sm">↑</span>
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground">Avg. Returns</p>
-                  <p className="font-bold text-foreground text-sm">
-                    18.4% p.a.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
 

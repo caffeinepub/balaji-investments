@@ -1,33 +1,9 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { InvestmentService, Testimonial } from "../backend.d";
-import { useActor } from "./useActor";
-
-export function useGetAllTestimonials() {
-  const { actor, isFetching } = useActor();
-  return useQuery<Testimonial[]>({
-    queryKey: ["testimonials"],
-    queryFn: async () => {
-      if (!actor) return [];
-      return actor.getAllTestimonials();
-    },
-    enabled: !!actor && !isFetching,
-  });
-}
-
-export function useGetAllInvestmentServices() {
-  const { actor, isFetching } = useActor();
-  return useQuery<InvestmentService[]>({
-    queryKey: ["investmentServices"],
-    queryFn: async () => {
-      if (!actor) return [];
-      return actor.getAllInvestmentServices();
-    },
-    enabled: !!actor && !isFetching,
-  });
-}
+import { useActor } from "@caffeineai/core-infrastructure";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createActor } from "../backend";
 
 export function useSubmitInquiry() {
-  const { actor } = useActor();
+  const { actor } = useActor(createActor);
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async ({

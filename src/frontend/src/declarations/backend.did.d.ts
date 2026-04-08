@@ -33,7 +33,7 @@ export type UserRole = { 'admin' : null } |
   { 'user' : null } |
   { 'guest' : null };
 export interface _SERVICE {
-  '_initializeAccessControlWithSecret' : ActorMethod<[string], undefined>,
+  '_initializeAccessControl' : ActorMethod<[], undefined>,
   'addInvestmentService' : ActorMethod<
     [string, string, string, string],
     undefined

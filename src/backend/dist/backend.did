@@ -1,0 +1,47 @@
+type UserRole = 
+ variant {
+   admin;
+   guest;
+   user;
+ };
+type UserProfile = record {name: text;};
+type Testimonial = 
+ record {
+   message: text;
+   name: text;
+   rating: nat;
+ };
+type InvestmentService = 
+ record {
+   category: text;
+   description: text;
+   iconName: text;
+   title: text;
+ };
+type Inquiry = 
+ record {
+   email: text;
+   message: text;
+   name: text;
+   phone: text;
+   serviceInterest: text;
+ };
+service : {
+  _initializeAccessControl: () -> ();
+  addInvestmentService: (title: text, description: text, iconName: text,
+   category: text) -> ();
+  addTestimonial: (name: text, message: text, rating: nat) -> ();
+  assignCallerUserRole: (user: principal, role: UserRole) -> ();
+  deleteTestimonial: (name: text) -> ();
+  getAllInquiries: () -> (vec Inquiry) query;
+  getAllInvestmentServices: () -> (vec InvestmentService) query;
+  getAllTestimonials: () -> (vec Testimonial) query;
+  getCallerUserProfile: () -> (opt UserProfile) query;
+  getCallerUserRole: () -> (UserRole) query;
+  getUserProfile: (user: principal) -> (opt UserProfile) query;
+  isCallerAdmin: () -> (bool) query;
+  removeInvestmentService: (title: text) -> ();
+  saveCallerUserProfile: (profile: UserProfile) -> ();
+  submitInquiry: (name: text, email: text, phone: text, serviceInterest:
+   text, message: text) -> ();
+}
